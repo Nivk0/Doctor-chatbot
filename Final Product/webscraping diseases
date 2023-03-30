@@ -1,0 +1,10 @@
+from requests import HTMLSession 
+s=HTMLSession()
+
+query = 'parkinsons'
+url =f'https://www.google.com/search?q=disease+{query}'
+r = s.get(url,headers = {'User-Agent' :'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.83 Safari/537.36'})
+
+temp = r.html.find('div.m6vS6b PZPZlf',first=True).text
+
+print (temp)
